@@ -16,8 +16,8 @@ export default class Header extends Component {
 
     render() {
       let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
-      let catTitle = this.props.title;
-      let catData = this.props.data;
+      // let catTitle = this.props.title;
+      // let catData = this.props.data;
 
       const fullWidth = {
         width:'100%'

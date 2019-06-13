@@ -15,7 +15,7 @@ export default class postHeader extends Component {
     }
     
     render() {
-      let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
+      // let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
       let authorImage = this.props.data;
       // console.log('headerprops', author);
       

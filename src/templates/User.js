@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/userIndex"
-import Header from '../components/siteHeader/postHeader'
+// import Header from '../components/siteHeader/postHeader'
 import SEO from "../utils/seo"
-import PostAuthor from "../components/post-author/index"
+// import PostAuthor from "../components/post-author/index"
 import { Link } from "gatsby"
-import { DiscussionEmbed } from "disqus-react";
-import AllPost from "../components/all-post/index"
+// import { DiscussionEmbed } from "disqus-react";
+// import AllPost from "../components/all-post/index"
 
 
 class UserTemplate extends Component {

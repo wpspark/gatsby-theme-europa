@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/postIndex"
-import Header from '../components/siteHeader/postHeader'
+// import Header from '../components/siteHeader/postHeader'
 import SEO from "../utils/seo"
 import PostAuthor from "../components/post-author/index"
 import { Link } from "gatsby"
