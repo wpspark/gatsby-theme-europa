@@ -2,7 +2,7 @@ const axios = require('axios');
 const createPosts = require(`./src/routing/createPosts`)
 const createCategories = require(`./src/routing/createCategories`)
 // const createPages = require(`./src/routing/createpages`)
-const createUsers = require(`./src/routing/createusers`)
+const createUsers = require(`./src/routing/createUsers`)
 // const createTags = require(`./src/routing/createtags`)
 
 exports.createPages = async ({ actions, graphql }) => {

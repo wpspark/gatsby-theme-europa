@@ -10,6 +10,7 @@ export default class Header extends Component {
       document.getElementById('MainsiteNav').classList.toggle('is-active');
     }
     toggleOffCanvasMenu = () => {
+      console.log('I am index page');
       document.getElementById("mySidenav").style.width = "250px";
       document.getElementById("mySidenav").style.marginRight = "250px";
     }
