@@ -2,7 +2,7 @@ const _ = require(`lodash`);
 const Promise = require(`bluebird`);
 const path = require(`path`);
 const slash = require(`slash`);
-const createPaginatedPages = require('gatsby-paginate');
+// const createPaginatedPages = require('gatsby-paginate');
 
 const postQuery = `
 {
@@ -76,20 +76,28 @@ module.exports = async ({ actions, graphql }) => {
       const postTemplate = path.resolve("./src/templates/post.js");
       const postsTemplate = path.resolve("./src/templates/blog.js");
 
-    
-      createPaginatedPages({
-        edges: result.data.allWordpressPost.edges,
-        createPage: createPage,
-        pageTemplate: slash(postsTemplate),
-        pageLength: 7,
-        pathPrefix: '/',
-        // pathPrefix: 'your_page_name',
-        buildPath: (index, pathPrefix) =>
-          index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+      createPage({
+        path: `/`,
+        component: slash(postsTemplate),
         context: {
-          wordpressSiteMetadata: result.data.wordpressSiteMetadata
+          wordpressSiteMetadata: result.data.wordpressSiteMetadata,
+          allPosts: result.data.allWordpressPost
         },
       });
+    
+      // createPaginatedPages({
+      //   edges: result.data.allWordpressPost.edges,
+      //   createPage: createPage,
+      //   pageTemplate: slash(postsTemplate),
+      //   pageLength: 7,
+      //   pathPrefix: '/',
+      //   // pathPrefix: 'your_page_name',
+      //   buildPath: (index, pathPrefix) =>
+      //     index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+      //   context: {
+      //     wordpressSiteMetadata: result.data.wordpressSiteMetadata
+      //   },
+      // });
       
       _.each(result.data.allWordpressPost.edges, edge => {
           createPage({

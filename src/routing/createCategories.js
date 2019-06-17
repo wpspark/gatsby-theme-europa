@@ -2,7 +2,7 @@ const _ = require(`lodash`);
 const Promise = require(`bluebird`);
 const path = require(`path`);
 const slash = require(`slash`);
-const createPaginatedPages = require('gatsby-paginate');
+// const createPaginatedPages = require('gatsby-paginate');
 
 const categoryQuery = `
 {

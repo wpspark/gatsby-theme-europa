@@ -8,11 +8,10 @@ import SEO from "../utils/seo"
 class BlogPage extends Component {
 
   render() {
-    
-    const { group, index, first, last, pageCount} = this.props.pageContext; //pageCount
-
+    // const { group, index, first, last, pageCount} = this.props.pageContext; //pageCount
+    const allPosts = this.props.pageContext.allPosts
     return (
-        <Layout wordpressSiteMetadata={this.props.pageContext.additionalContext.wordpressSiteMetadata}>
+        <Layout wordpressSiteMetadata={this.props.pageContext.wordpressSiteMetadata}>
         	
           <SEO title="Home" />
 
@@ -20,9 +19,9 @@ class BlogPage extends Component {
 
           {/* <hr /> */}
 
-        	<AllPost data={group} ignorefirst="true"/>
+        	<AllPost data={allPosts.edges} ignorefirst="true"/>
 
-          <AllPostPagination index={index} first={first} last={last} pageCount={pageCount}/>
+          {/* <AllPostPagination index={index} first={first} last={last} pageCount={pageCount}/> */}
 
         </Layout>
     )
