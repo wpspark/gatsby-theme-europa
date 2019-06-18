@@ -26,7 +26,7 @@ export default class AllPost extends Component {
               {
                 data.map((node, index) => {
                   // console.log("node ", node)
-                  return (ignorefirst && index === 0) ? null : 
+                  return (
                   <div key={index} className='column is-three-fifths is-offset-one-fifth'>
                     <article className="card"> 
                       
@@ -52,7 +52,7 @@ export default class AllPost extends Component {
                       </div>
                     </article>
                   </div>
-                })
+                )})
               }
             </div>
           </div>

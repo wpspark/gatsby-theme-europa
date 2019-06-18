@@ -73,17 +73,63 @@ module.exports = async ({ actions, graphql }) => {
         reject(result.errors);
       }
 
+      /**
+       * for pagination
+       */
+      const postsPerPage = 3;
+      const numberOfPosts = result.data.allWordpressPost.edges.length;
       const postTemplate = path.resolve("./src/templates/post.js");
       const postsTemplate = path.resolve("./src/templates/blog.js");
 
-      createPage({
-        path: `/`,
-        component: slash(postsTemplate),
-        context: {
-          wordpressSiteMetadata: result.data.wordpressSiteMetadata,
-          allPosts: result.data.allWordpressPost
-        },
-      });
+      const numberOfPostsPages = Math.ceil(numberOfPosts/postsPerPage);
+      console.log('number of all posts', numberOfPosts, 'number of posts pages ', numberOfPostsPages);
+      for(let pageIndex = 0; pageIndex < numberOfPostsPages; pageIndex++){
+        const pageNumber = pageIndex + 1;
+        const path = pageIndex === 0 ? '/' : `/posts/${pageNumber}`
+        const skip = pageIndex * postsPerPage;
+
+        function getPreviousPageLink(){
+          if(!pageIndex) return null
+          if(pageIndex === 1) return '/'
+          return `/posts/${pageIndex}` 
+        }
+
+        function getNextPageLink(){
+          if(pageNumber < numberOfPostsPages){
+            return `/posts/${pageNumber + 1}`
+          }else{
+            return null;
+          }
+        }
+
+        createPage({
+          path: path,
+          component: slash(postsTemplate),
+          context: {
+            limit: postsPerPage,
+            skip: skip,
+            next: getNextPageLink(),
+            prev: getPreviousPageLink(),
+            wordpressSiteMetadata: result.data.wordpressSiteMetadata,
+            allPosts: result.data.allWordpressPost,
+            numberOfPostsPages: numberOfPostsPages
+          },
+        });
+
+      }
+       /**
+        * templates to create pages
+        */
+      
+
+      // createPage({
+      //   path: `/`,
+      //   component: slash(postsTemplate),
+      //   context: {
+      //     wordpressSiteMetadata: result.data.wordpressSiteMetadata,
+      //     allPosts: result.data.allWordpressPost
+      //   },
+      // });
     
       // createPaginatedPages({
       //   edges: result.data.allWordpressPost.edges,
