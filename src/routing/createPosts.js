@@ -145,7 +145,7 @@ module.exports = async ({ actions, graphql }) => {
       //   },
       // });
       
-      _.each(result.data.allWordpressPost.edges, edge => {
+      _.each(result.data.allWordpressPost.edges, (edge, index) => {
           createPage({
               path: `/post/${edge.node.slug}/`,
               component: slash(postTemplate),
@@ -154,7 +154,9 @@ module.exports = async ({ actions, graphql }) => {
                 slug: edge.node.slug,
                 wordpressPost: edge.node,
                 site: result.data.site,
-                wordpressSiteMetadata: result.data.wordpressSiteMetadata
+                wordpressSiteMetadata: result.data.wordpressSiteMetadata,
+                prev: index === 0 ? null : result.data.allWordpressPost.edges[index-1].node.slug,
+                next: index === ( result.data.allWordpressPost.edges.length - 1 ) ? null : result.data.allWordpressPost.edges[index+1].node.slug
               },
           });
       });

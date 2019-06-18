@@ -20,7 +20,9 @@ class PostTemplate extends Component {
   render() {
 		const data = this.props.pageContext.wordpressPost;
 		const disqusShortname = this.props.pageContext.site.siteMetadata.disqusShortname;
-	
+		const prevPost = this.props.pageContext.prev
+		const nextPost = this.props.pageContext.next
+		console.log('page data', this.props.pageContext);
     const disqusConfig = {
 			identifier: data.id,
 			title: data.title,
@@ -67,6 +69,10 @@ class PostTemplate extends Component {
 												)}
 											</div>
 										</div>
+										<section className="single-post-pagination is-flex" style={{justifyContent: "space-between"}}>
+											{prevPost && <Link to={`/post/${prevPost}`} className="button post-left" >Previous Post</Link> }
+											{nextPost && <Link to={`/post/${nextPost}`} className="button post-right" >Next Post</Link> }
+										</section>
 										
 										<PostAuthor data={data.author}/>
 										
