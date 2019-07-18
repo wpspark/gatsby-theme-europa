@@ -1,7 +1,7 @@
 {
-  "name": "BlogTheme1-WpSpark",
+  "name": "BlogTheme2-WpSpark",
   "private": true,
-  "description": "First blog theme of WpSpark",
+  "description": "Second blog theme of WpSpark",
   "version": "1.0.0",
   "author": "wpspark.io",
   "dependencies": {

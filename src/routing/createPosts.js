@@ -82,7 +82,6 @@ module.exports = async ({ actions, graphql }) => {
       const postsTemplate = path.resolve("./src/templates/blog.js");
 
       const numberOfPostsPages = Math.ceil(numberOfPosts/postsPerPage);
-      console.log('number of all posts', numberOfPosts, 'number of posts pages ', numberOfPostsPages);
       for(let pageIndex = 0; pageIndex < numberOfPostsPages; pageIndex++){
         const pageNumber = pageIndex + 1;
         const path = pageIndex === 0 ? '/' : `/posts/${pageNumber}`
@@ -146,6 +145,7 @@ module.exports = async ({ actions, graphql }) => {
       // });
       
       _.each(result.data.allWordpressPost.edges, (edge, index) => {
+          edge.node.slug = edge.node.slug.includes('google-ads') ? edge.node.slug.replace("google-ads", "googleads"): edge.node.slug;
           createPage({
               path: `/post/${edge.node.slug}/`,
               component: slash(postTemplate),

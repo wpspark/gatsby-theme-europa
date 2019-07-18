@@ -31,14 +31,14 @@ export default class CategoryMenu extends Component {
           `}
           render={data => (
             <aside  id="mySidenav" className="menu navbar-itemm sidenav">     
-              <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>&times;</a> 
-              <ul class="menu-listt">
+              <button style={{border:'none', background:'none'}} className="closebtn" onClick={this.closeNav}>&times;</button> 
+              <ul className="menu-listt">
                 
                 {
                   data.allWordpressCategory.edges.map( ({node}) => (
                     node.count !== 0 ? 
-                    <li>
-                      <Link key={node.id} className={ active === node.slug ? 'navbar-itemm is-active' : 'navbar-itemm'} to={'/categories/' + node.slug} dangerouslySetInnerHTML={{__html:node.name}} />
+                    <li key={node.id} >
+                      <Link className={ active === node.slug ? 'navbar-itemm is-active' : 'navbar-itemm'} to={'/categories/' + node.slug} dangerouslySetInnerHTML={{__html:node.name}} />
                     </li>
                     : null 
                   ))

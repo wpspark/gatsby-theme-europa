@@ -15,7 +15,7 @@ export default class AllPostPagination extends Component {
       let children = []
       // Outer loop to create parent
       children.push(
-        <li>
+        <li key="start-li">
           <Link className="pagination-link" aria-label={'Start'} to={'/'}>
             Start
           </Link>
@@ -34,7 +34,7 @@ export default class AllPostPagination extends Component {
       }
 
       children.push(
-        <li>
+        <li key="end-li">
           <Link className="pagination-link" aria-label={'End'} to={'/posts/' + (pageCount)}>
             End
           </Link>

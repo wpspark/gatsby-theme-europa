@@ -17,7 +17,6 @@ export default class postHeader extends Component {
     render() {
       // let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
       let authorImage = this.props.data;
-      // console.log('headerprops', author);
       
       const zindexUp = {
           position:'fixed',
@@ -131,7 +130,7 @@ export default class postHeader extends Component {
                       <div className="column is-offset-2 is-8">
                           <h2 className="post-title title is-2 has-text-white" dangerouslySetInnerHTML={{__html:this.props.data.title}}></h2>
                           <p className="post-meta has-text-white">
-                              <Link className="has-text-white" to={'user/'+this.props.data.author.slug}>{this.props.data.author.name}</Link>
+                              <Link className="has-text-white" to={`user/${this.props.data.author.slug}`}>{this.props.data.author.name}</Link>
                               <span className="sperator"> | </span>
                               <time dateTime={new Date(data.date).toLocaleDateString("en-US")}>{this.props.data.date}</time>
                           </p>

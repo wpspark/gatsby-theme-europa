@@ -22,11 +22,10 @@ class PostTemplate extends Component {
 		const disqusShortname = this.props.pageContext.site.siteMetadata.disqusShortname;
 		const prevPost = this.props.pageContext.prev
 		const nextPost = this.props.pageContext.next
-		console.log('page data', this.props.pageContext);
-    const disqusConfig = {
-			identifier: data.id,
-			title: data.title,
-    };
+		const disqusConfig = {
+				identifier: data.id,
+				title: data.title,
+		};
 
     return (
 			<Layout wordpressSiteMetadata={this.props.pageContext.wordpressSiteMetadata} featuredImage={data.spark_media} data={data}>

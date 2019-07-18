@@ -4,18 +4,17 @@ import Layout from "../layouts/index"
 import AllPost from "../components/all-post/index"
 import AllPostPagination from "../components/all-post/pagination"
 import SEO from "../utils/seo"
-// import {Link} from 'gatsby'
+import {graphql} from 'gatsby'
 
 class BlogPage extends Component {
 
   render() {
     // const { group, index, first, last, pageCount} = this.props.pageContext; //pageCount
-    const allPosts = this.props.pageContext.allPosts
+    // const allPosts = this.props.pageContext.allPosts
     const next = this.props.pageContext.next
     const prev = this.props.pageContext.prev
     const myNewPost = this.props.data.allWordpressPost
     const numberOfPostsPages = this.props.pageContext.numberOfPostsPages
-    console.log('myNewPost', myNewPost);
     return (
         <Layout wordpressSiteMetadata={this.props.pageContext.wordpressSiteMetadata}>
         	

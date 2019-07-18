@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/userIndex"
-// import Header from '../components/siteHeader/postHeader'
 import SEO from "../utils/seo"
-// import PostAuthor from "../components/post-author/index"
 import { Link } from "gatsby"
+// import Header from '../components/siteHeader/postHeader'
+// import PostAuthor from "../components/post-author/index"
 // import { DiscussionEmbed } from "disqus-react";
 // import AllPost from "../components/all-post/index"
 
@@ -23,7 +23,6 @@ class UserTemplate extends Component {
     render() {
         const data = this.props.pageContext.wordpressPost;
         const user = this.props.pageContext.userData;
-        console.log('user', data, user);
         
 
         return (
@@ -38,7 +37,9 @@ class UserTemplate extends Component {
                                 {
                                     data
                                     ?
-                                    data.map( (post, index) => 
+                                    data.map( (post, index) => {
+                                        post.slug = post.slug.includes('google-ads') ? post.slug.replace("google-ads", "googleads"): post.slug;
+                                        return(
                                         <div key={index} className='column is-three-fifths is-offset-one-fifth'>
                                             <article className="card"> 
                                             
@@ -47,7 +48,7 @@ class UserTemplate extends Component {
                                                 <Link className="has-text-black" to={'/post/' + post.slug} dangerouslySetInnerHTML={{__html:post.title + " "}} />
                                                 </h4>
                                                 <p className="post-meta has-text-grey">
-                                                <Link className="has-text-grey" to={'user/'+post.author.slug}>{post.author.name}</Link>
+                                                <Link className="has-text-grey" to={`user/${post.author.slug}`}>{post.author.name}</Link>
                                                 <span> on </span> 
 
                                                 {post.categories && post.categories.map(
@@ -62,8 +63,8 @@ class UserTemplate extends Component {
 
                                             </div>
                                             </article>
-                                        </div>    
-                                    )
+                                        </div> )   
+                                    })
                                     : <p>No Post for this Author</p>
                                 }
 

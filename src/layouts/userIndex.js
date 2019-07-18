@@ -7,7 +7,6 @@ import "../utils/typography"
 class userLayout extends Component {
   
   render() {
-    // console.log('post header props', this.props);
     return (
       <div className="wp-spark-app">
 
