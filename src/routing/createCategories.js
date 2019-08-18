@@ -2,7 +2,6 @@ const _ = require(`lodash`);
 const Promise = require(`bluebird`);
 const path = require(`path`);
 const slash = require(`slash`);
-// const createPaginatedPages = require('gatsby-paginate');
 
 const categoryQuery = `
 {
@@ -47,7 +46,7 @@ module.exports = async ({ actions, graphql }) => {
       }
 
       const categoryTemplate = path.resolve("./src/templates/category.js");
-      const categoriesTemplate = path.resolve("./src/templates/CategoriesArchive.js");
+      const categoriesTemplate = path.resolve("./src/templates/categoriesArchive.js");
       
       createPage({
         path: `categories/`,
@@ -56,7 +55,7 @@ module.exports = async ({ actions, graphql }) => {
           allWordpressCategory: result.data.allWordpressCategory,
           wordpressSiteMetadata: result.data.wordpressSiteMetadata
         },
-    });
+      });
       _.each(result.data.allWordpressCategory.edges, edge => {
           createPage({
               path: `/categories/${edge.node.slug}`,

@@ -2,7 +2,6 @@ const _ = require(`lodash`);
 const Promise = require(`bluebird`);
 const path = require(`path`);
 const slash = require(`slash`);
-// const createPaginatedPages = require('gatsby-paginate');
 
 const userQuery = `
 {
@@ -72,7 +71,7 @@ module.exports = async ({ actions, graphql }) => {
         reject(result.errors);
       }
 
-      const userTemplate = path.resolve("./src/templates/User.js");
+      const userTemplate = path.resolve("./src/templates/user.js");
       
         _.each(result.data.allWordpressWpUsers.edges, edge => {
             createPage({

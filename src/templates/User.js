@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import Layout from "../layouts/userIndex"
 import SEO from "../utils/seo"
 import { Link } from "gatsby"
-// import Header from '../components/siteHeader/postHeader'
-// import PostAuthor from "../components/post-author/index"
-// import { DiscussionEmbed } from "disqus-react";
-// import AllPost from "../components/all-post/index"
 
 
 class UserTemplate extends Component {
