@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/catIndex"
 import SEO from "../utils/seo"
-import AllPost from "../components/all-post/index"
+import AllPost from "../components/allPost/index"
 import { graphql } from "gatsby"
 
 class CategoryPage extends Component {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/postIndex"
-// import Header from '../components/siteHeader/postHeader'
 import SEO from "../utils/seo"
-import PostAuthor from "../components/post-author/index"
+import PostAuthor from "../components/postAuthor/index"
 import { Link } from "gatsby"
 import { DiscussionEmbed } from "disqus-react";
 
@@ -35,28 +34,13 @@ class PostTemplate extends Component {
 				<section className="hero">
 					<div className="hero-bodyy">
 						<div className="container">
-							{/* <div className="section has-text-centered header"> */}
-								{/* <h1 className="title" dangerouslySetInnerHTML={{__html:data.title}} /> */}
-								
-							{/* </div> */}
-
-							{
-									// data.featured_media === undefined ? null :
-									// 	data.featured_media.localFile === null ? null :
-									// 		<figure className="image is-3by1 image-objectfit-contain">
-									// 			<img src={data.featured_media.localFile.childImageSharp.original.src} alt={data.title} />
-									// 		</figure>
-									// <figure className="image is-3by1 image-objectfit-contain">
-									// 	<img src={data.spark_media} alt={data.title}/>
-									// </figure>
-							}
+							
 							<div className="section hero-content">
 								<div className="columns">
 									<div className="column is-offset-2 is-8">
 										<div className="post content is-medium card card-content" dangerouslySetInnerHTML={{__html:data.content}} />
 										
 										<div className="subtitle is-4">
-											{/* <time dateTime={new Date(data.date).toLocaleDateString("en-US")}>{data.date}</time> */}
 											
 											<div className="tags is-centered are-medium"
 												style={{

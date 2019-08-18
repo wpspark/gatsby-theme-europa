@@ -11,6 +11,12 @@ Gatsby Template - Europa
 
 _Before start development or deploy make sure our `spark-lite` WordPress plugin is installed inside your WordPress installation  [Download Spark Lite](https://github.com/wpspark/spark-lite)._
 
+#### Install gatsby CLI
+Please install gatsby CLI globaly.
+```sh
+npm install -g gatsby-cli
+```
+
 ## 🚀 Quick start
 1.  **Create a Gatsby site.**
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/index"
 import SEO from "../utils/seo"
-import PageTitle from "../components/page-title/index"
+import PageTitle from "../components/pageTitle/index"
 import { Link } from "gatsby"
 
 class CategoriesArchivePage extends Component {

@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import Layout from "../layouts/index"
-// import LatestPost from "../components/latest-post/index"
-import AllPost from "../components/all-post/index"
-import AllPostPagination from "../components/all-post/pagination"
+import AllPost from "../components/allPost/index"
+import AllPostPagination from "../components/allPost/pagination"
 import SEO from "../utils/seo"
 import {graphql} from 'gatsby'
 
 class BlogPage extends Component {
 
   render() {
-    // const { group, index, first, last, pageCount} = this.props.pageContext; //pageCount
-    // const allPosts = this.props.pageContext.allPosts
     const next = this.props.pageContext.next
     const prev = this.props.pageContext.prev
     const myNewPost = this.props.data.allWordpressPost
@@ -20,16 +17,9 @@ class BlogPage extends Component {
         	
           <SEO title="Home" />
 
-        	{/* <LatestPost data={group[0].node} /> */}
-
-          {/* <hr /> */}
-
         	<AllPost data={myNewPost.edges} ignorefirst="false"/>
 
           <AllPostPagination prev={prev} next={next} pageCount={numberOfPostsPages}/>
-
-          {/* {prev && <Link to={prev}>Newer</Link>}
-          {next && <Link to={next}>Older</Link>} */}
 
         </Layout>
     )

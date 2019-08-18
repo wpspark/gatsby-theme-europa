@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
-// import Menu from "../siteMenu"
-import CategoryMenu from "../category-menu/index"
-// import logo from "../../images/wpspark-logo.png"
+import CategoryMenu from "../categoryMenu/index"
 import Helmet from "react-helmet"
 
 export default class Header extends Component {
@@ -16,8 +14,6 @@ export default class Header extends Component {
 
     render() {
       let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
-      // let catTitle = this.props.title;
-      // let catData = this.props.data;
 
       const fullWidth = {
         width:'100%'
@@ -58,9 +54,7 @@ export default class Header extends Component {
                   }
                 </Link>
                 <p>{wordpressSiteMetadata.description}</p>
-                {/* <span className="navbar-burger burger" data-target="MainsiteNav" onClick={this.toggleDropdownMenu}>
-                  <span /><span /><span />
-                </span> */}
+                
               </div>
 
               <div className="menu">
@@ -70,26 +64,6 @@ export default class Header extends Component {
                 </div>
               </div>
 
-              {/* <div id="MainsiteNav" className=""> */}
-                {/* <div className="navbar-start">
-                  <CategoryMenu slug={this.props.slug} />
-                </div> */}
-
-                {/* <div className="navbar-end"> */}
-                  {/* <Menu data={this.props.pageContext} /> */}
-
-                  {/* <div className="navbar-item">
-                    <div className="field is-grouped">
-                      <p className="control">
-                        <a className="button is-primary" href={wordpressSiteMetadata.url} target="_blank" rel="noopener noreferrer">
-                          <span>Mainsite</span>
-                        </a>
-                      </p>
-                    </div>
-                  </div> */}
-                {/* </div> */}
-              {/* </div> */}
-              
             </nav>
           }}
           />

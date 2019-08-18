@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
-// import Menu from "../siteMenu"
-import CategoryMenu from "../category-menu/index"
-// import logo from "../../images/wpspark-logo.png"
+import CategoryMenu from "../categoryMenu/index"
 import Helmet from "react-helmet"
 
 class catHeader extends Component {
@@ -15,7 +13,6 @@ class catHeader extends Component {
     }
     
     render() {
-      // let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
       
       const zindexUp = {
           position:'fixed',
@@ -74,9 +71,6 @@ class catHeader extends Component {
                 <div className="navbar-start">
                   <CategoryMenu slug={this.props.slug} />
                 </div>
-                
-                
-                
                 
               </nav>
             )

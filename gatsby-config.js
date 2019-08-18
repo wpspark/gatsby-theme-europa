@@ -36,14 +36,11 @@ module.exports = {
         includedRoutes: [
           "**/site_metadata",
           "**/posts",
-          // "**/pages",
-          // "**/media",
           "**/categories",
           "**/tags",
           "**/taxonomies",
           "**/users",
           "**/spark"
-          // "/wp-api-menus/**",
         ],
         verboseOutput: false,
         // concurrentRequests: 1,

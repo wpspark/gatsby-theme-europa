@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
-// import Menu from "../siteMenu"
-import CategoryMenu from "../category-menu/index"
-// import logo from "../../images/wpspark-logo.png"
+import CategoryMenu from "../categoryMenu/index"
 import Helmet from "react-helmet"
 
 export default class postHeader extends Component {
@@ -15,7 +13,6 @@ export default class postHeader extends Component {
     }
     
     render() {
-      // let wordpressSiteMetadata = this.props.wordpressSiteMetadata;
       let authorImage = this.props.data;
       
       const zindexUp = {
