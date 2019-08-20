@@ -49,11 +49,6 @@ const postQuery = `
             wordpress_96
           }
         }
-        tags {
-          id
-          name
-          slug
-        }
       }
     }
   }

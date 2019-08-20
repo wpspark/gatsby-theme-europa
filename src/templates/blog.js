@@ -54,6 +54,7 @@ export const query = graphql`
               slug
               link
           }
+          spark_media
           spark_user {
             name
             slug
@@ -61,12 +62,7 @@ export const query = graphql`
               wordpress_96
             }
           }
-          spark_media
-          tags {
-            id
-            name
-            slug
-          }
+          
         }
       }
     }

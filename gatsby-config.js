@@ -37,7 +37,6 @@ module.exports = {
           "**/site_metadata",
           "**/posts",
           "**/categories",
-          "**/tags",
           "**/taxonomies",
           "**/users",
           "**/spark",
