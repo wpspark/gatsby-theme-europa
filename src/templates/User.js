@@ -19,8 +19,6 @@ class UserTemplate extends Component {
     render() {
         const data = this.props.pageContext.wordpressPost;
         const user = this.props.pageContext.userData;
-        
-
         return (
                 <Layout wordpressSiteMetadata={this.props.pageContext.wordpressSiteMetadata} title={user.name} data={this.props.pageContext.userData}>
                     
@@ -36,30 +34,31 @@ class UserTemplate extends Component {
                                     data.map( (post, index) => {
                                         post.slug = post.slug.includes('google-ads') ? post.slug.replace("google-ads", "googleads"): post.slug;
                                         return(
-                                        <div key={index} className='column is-three-fifths is-offset-one-fifth'>
-                                            <article className="card"> 
-                                            
-                                            <div className="card-content">
-                                                <h4 className="title is-3">
-                                                <Link className="has-text-black" to={'/post/' + post.slug} dangerouslySetInnerHTML={{__html:post.title + " "}} />
-                                                </h4>
-                                                <p className="post-meta has-text-grey">
-                                                <Link className="has-text-grey" to={`user/${post.author.slug}`}>{post.author.name}</Link>
-                                                <span> on </span> 
-
-                                                {post.categories && post.categories.map(
-                                                    category => <Link className="has-text-grey" key={category.id} to={'/categories/'+ category.slug}><span dangerouslySetInnerHTML={{__html:category.name + " "}} /></Link>
-                                                )}
-                                                <span> | </span>
+                                            <div key={index} className='column is-three-fifths is-offset-one-fifth'>
+                                                <article className="card"> 
                                                 
-                                                <time className="" dateTime={new Date(post.date).toLocaleDateString("en-US")}>{post.date}</time>
-                                                </p>
-                                                <p className="post-excerpt has-text-grey-dark" style={{margin:'20px 0px 0px'}} dangerouslySetInnerHTML={{__html:this.filterExcerpt(post.excerpt)}}/>
-                                                
+                                                <div className="card-content">
+                                                    <h4 className="title is-3">
+                                                    <Link className="has-text-black" to={'/post/' + post.slug} dangerouslySetInnerHTML={{__html:post.title + " "}} />
+                                                    </h4>
+                                                    <p className="post-meta has-text-grey">
+                                                    <Link className="has-text-grey" to={`user/${post.spark_user.slug.toLowerCase()}`}>{post.spark_user.name}</Link>
+                                                    <span> on </span> 
 
-                                            </div>
-                                            </article>
-                                        </div> )   
+                                                    {post.categories && post.categories.map(
+                                                        category => <Link className="has-text-grey" key={category.id} to={'/categories/'+ category.slug}><span dangerouslySetInnerHTML={{__html:category.name + " "}} /></Link>
+                                                    )}
+                                                    <span> | </span>
+                                                    
+                                                    <time className="" dateTime={new Date(post.date).toLocaleDateString("en-US")}>{post.date}</time>
+                                                    </p>
+                                                    <p className="post-excerpt has-text-grey-dark" style={{margin:'20px 0px 0px'}} dangerouslySetInnerHTML={{__html:this.filterExcerpt(post.excerpt)}}/>
+                                                    
+
+                                                </div>
+                                                </article>
+                                            </div> 
+                                        )   
                                     })
                                     : <p>No Post for this Author</p>
                                 }

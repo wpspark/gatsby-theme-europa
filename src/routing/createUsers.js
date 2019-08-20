@@ -20,7 +20,7 @@ const userQuery = `
         url
         home
     }
-    allWordpressWpUsers{
+    allWordpressWpUserdata{
         edges{
             node{
                 id
@@ -45,11 +45,10 @@ const userQuery = `
                         link
                     }
                     spark_media
-                    author {
-                        id
+                    spark_user {
                         name
                         slug
-                        avatar_urls{
+                        avatar_urls {
                           wordpress_96
                         }
                     }
@@ -73,9 +72,9 @@ module.exports = async ({ actions, graphql }) => {
 
       const userTemplate = path.resolve("./src/templates/user.js");
       
-        _.each(result.data.allWordpressWpUsers.edges, edge => {
+        _.each(result.data.allWordpressWpUserdata.edges, edge => {
             createPage({
-                path: `/user/${edge.node.slug}/`,
+                path: `/user/${edge.node.slug.toLowerCase()}/`,
                 component: slash(userTemplate),
                 context: {
                     id: edge.node.id,

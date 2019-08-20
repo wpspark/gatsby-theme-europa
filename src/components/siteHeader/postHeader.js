@@ -14,7 +14,6 @@ export default class postHeader extends Component {
     
     render() {
       let authorImage = this.props.data;
-      
       const zindexUp = {
           position:'fixed',
           zIndex:'2',
@@ -88,13 +87,13 @@ export default class postHeader extends Component {
                   ? 
                   <div className="category-title">
                     {
-                      authorImage.avatar_urls 
+                      authorImage.spark_user.avatar_urls 
                       ?
                       <div className="is-inline-block">
                         <figure className="image is-96x96 image-objectfit-contain" style={{margin:'0 auto'}}>
                           <img className="is-rounded" width="96" height="96" 
-                            src={ authorImage.avatar_urls.wordpress_96 } 
-                            alt={ authorImage.name }
+                            src={ authorImage.spark_user.avatar_urls.wordpress_96 } 
+                            alt={ authorImage.spark_user.name }
                           />
                         </figure>
                         <h2 className="title is-2" dangerouslySetInnerHTML={{__html:this.props.title}}></h2>
@@ -122,7 +121,7 @@ export default class postHeader extends Component {
                       <div className="column is-offset-2 is-8">
                           <h2 className="post-title title is-2 has-text-white" dangerouslySetInnerHTML={{__html:this.props.data.title}}></h2>
                           <p className="post-meta has-text-white">
-                              <Link className="has-text-white" to={`user/${this.props.data.author.slug}`}>{this.props.data.author.name}</Link>
+                              <Link className="has-text-white" to={`user/${this.props.data.spark_user.slug.toLowerCase()}`}>{this.props.data.spark_user.name}</Link>
                               <span className="sperator"> | </span>
                               <time dateTime={new Date(data.date).toLocaleDateString("en-US")}>{this.props.data.date}</time>
                           </p>

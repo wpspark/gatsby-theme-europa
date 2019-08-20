@@ -36,7 +36,7 @@ export default class AllPost extends Component {
                           </h4>
 
                           <p className="post-meta has-text-grey">
-                            <Link className="has-text-grey" to={`user/${node.node.author.slug}`} dangerouslySetInnerHTML={{__html:node.node.author.name}} />
+                            <Link className="has-text-grey" to={`user/${node.node.spark_user.slug.toLowerCase()}`} dangerouslySetInnerHTML={{__html:node.node.spark_user.name}} />
                             <span> on </span> 
 
                             {node.node.categories && node.node.categories.map(

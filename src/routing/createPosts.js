@@ -41,15 +41,14 @@ const postQuery = `
             slug
             link
         }
-        author {
-          id
+        spark_media
+        spark_user {
           name
           slug
-          avatar_urls{
+          avatar_urls {
             wordpress_96
           }
         }
-        spark_media
         tags {
           id
           name

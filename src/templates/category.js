@@ -48,11 +48,10 @@ export const categoryQuery = graphql`
                     slug
                     link
                 }
-                author {
-                  id
+                spark_user {
                   name
                   slug
-                  avatar_urls{
+                  avatar_urls {
                     wordpress_96
                   }
                 }

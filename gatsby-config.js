@@ -25,7 +25,7 @@ module.exports = {
     `gatsby-image`,
     `gatsby-plugin-sharp`, 
     {
-      resolve: `gatsby-source-wordpress`,
+      resolve: `@theanamhossain/gatsby-source-wordpress`,
       options: {
         baseUrl: process.env.baseUrl,
         auth: {},
@@ -40,7 +40,8 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
           "**/users",
-          "**/spark"
+          "**/spark",
+          "**/userdata"
         ],
         verboseOutput: false,
         // concurrentRequests: 1,
